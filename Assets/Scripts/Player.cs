@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamagable
 {
     [SerializeField] private PlayerInput inputSystem;
     [SerializeField] private float speed;
@@ -47,11 +47,16 @@ public class Player : MonoBehaviour
         Vector2 mouseVector = mouseValue.Get<Vector2>();
 
         mouseVector = Vector2.Scale(mouseVector, new Vector2(mouseSens, mouseSens));
-        
+
         mouseMove.x = Mathf.Lerp(mouseMove.x, mouseVector.x, 1f / smoothing);
         mouseMove.y = Mathf.Lerp(mouseMove.y, mouseVector.y, 1f / smoothing);
 
         mouseLook += mouseMove;
         mouseLook.y = Mathf.Clamp(mouseLook.y, -lookAngle, lookAngle);
+    }
+
+    public void TakeDamage(int damage)
+    {
+
     }
 }
