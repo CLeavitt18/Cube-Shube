@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damage)
     {
-        
+        Debug.Log("enemy hit by bullet");
     }
 
     private void OnDrawGizmos() 
