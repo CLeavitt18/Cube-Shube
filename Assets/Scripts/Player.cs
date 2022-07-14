@@ -95,6 +95,28 @@ public class Player : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damage)
     {
+        if (shield > 0)
+        {
+            shield -= damage;
+
+            if (shield < 0)
+            {
+                shield = 0;
+            }
+        }
+        else
+        {
+            life -= damage;
+
+            if (life <= 0)
+            {
+                Death();
+            }
+        }
+    }
+
+    private void Death()
+    {
 
     }
 }

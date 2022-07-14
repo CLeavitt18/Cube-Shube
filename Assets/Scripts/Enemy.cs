@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour, IDamagable
 {
     [Header("Compenets\n------------------------------------------------------")]
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private Transform bulletSpawn;
 
 
     [Header("Enemy Stats\n------------------------------------------------------")]
@@ -18,6 +19,10 @@ public class Enemy : MonoBehaviour, IDamagable
     [SerializeField] private int attackRange;
     [SerializeField] private int stopRange;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private float fireRate;
+
+    private bool canShoot = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +35,7 @@ public class Enemy : MonoBehaviour, IDamagable
     void Update()
     {
         Move();
+        Attack();
     }
 
     private void Move()
@@ -44,6 +50,32 @@ public class Enemy : MonoBehaviour, IDamagable
         {
             agent.SetDestination(Player.player.transform.position);
         }
+    }
+
+    private void Attack()
+    {
+        if (!canShoot)
+        {
+            return;
+        }
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, attackRange))
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                StartCoroutine(Shoot());
+            }
+        }
+    }
+
+    private IEnumerator Shoot()
+    {
+        canShoot = false;
+        Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
+        yield return new WaitForSeconds(fireRate);
+        canShoot = true;
     }
 
     private void FacePlayer()

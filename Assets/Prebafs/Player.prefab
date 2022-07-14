@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: -7655739654448176602}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,11 +243,12 @@ MonoBehaviour:
   lookAngle: 75
   mouseSens: 0.15
   smoothing: 35
-  life: 0
-  shield: 0
-  bullet: {fileID: 4241596724125498864, guid: f4499a0e5b32a1949ae8c93d669d4f89, type: 3}
-  damage: 0
-  fireRate: 0
+  life: 150
+  shield: 100
+  armor: 0
+  bullet: {fileID: 885824115089934467, guid: ad577db7cf6475f4bb7b52ad6025b08d, type: 3}
+  damage: 10
+  fireRate: 0.2
 --- !u!114 &-7655739654448176602
 MonoBehaviour:
   m_ObjectHideFlags: 0
