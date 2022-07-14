@@ -30,8 +30,8 @@ public class Player : MonoBehaviour, IDamagable
     private Vector2 mouseMove;
     private Vector2 mouseLook;
 
-    private int MaxLife;
-    private int MaxShield;
+    private int maxLife;
+    private int maxShield;
 
 
     private void Awake() 
@@ -46,8 +46,8 @@ public class Player : MonoBehaviour, IDamagable
             DontDestroyOnLoad(gameObject);
         }
 
-        MaxLife = life;
-        MaxShield = shield;
+        maxLife = life;
+        maxShield = shield;
     }
 
     private void Start()
@@ -135,7 +135,7 @@ public class Player : MonoBehaviour, IDamagable
 
     public int GetMaxLife()
     {
-        return MaxLife;
+        return maxLife;
     }
 
     public int GetShield()
@@ -145,6 +145,6 @@ public class Player : MonoBehaviour, IDamagable
 
     public int GetMaxShield()
     {
-        return MaxShield;
+        return maxShield;
     }
 }
