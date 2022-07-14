@@ -34,7 +34,7 @@ public class Player : MonoBehaviour, IDamagable
     private Vector2 mouseLook;
 
 
-    private void Start()
+    private void Awake() 
     {
         if (player != null && player != this)
         {
@@ -46,6 +46,10 @@ public class Player : MonoBehaviour, IDamagable
             DontDestroyOnLoad(gameObject);
         }
 
+    }
+
+    private void Start()
+    {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -67,7 +71,7 @@ public class Player : MonoBehaviour, IDamagable
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
 
-        movementX = movementVector.x / 2.0f;
+        movementX = movementVector.x * 0.75f;
         movementY = movementVector.y;
     }
 

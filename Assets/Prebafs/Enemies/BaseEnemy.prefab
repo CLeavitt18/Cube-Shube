@@ -199,7 +199,7 @@ MonoBehaviour:
   life: 0
   shield: 0
   armor: 0
-  speed: 0
+  speed: 4
   lookRange: 12
   attackRange: 10
   stopRange: 7

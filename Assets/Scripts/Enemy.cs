@@ -29,7 +29,30 @@ public class Enemy : MonoBehaviour, IDamagable
     // Update is called once per frame
     void Update()
     {
-        
+        Move();
+    }
+
+    private void Move()
+    {
+        float distance = Vector3.Distance(Player.player.transform.position, transform.position);
+
+        if (distance <= stopRange)
+        {
+            FacePlayer();
+        }
+        else if (distance <= lookRange)
+        {
+            agent.SetDestination(Player.player.transform.position);
+        }
+    }
+
+    private void FacePlayer()
+    {
+        Vector3 direction = (Player.player.transform.position - transform.position).normalized;
+
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
     public void TakeDamage(int damage)
