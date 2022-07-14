@@ -95,6 +95,7 @@ public class Enemy : MonoBehaviour, IDamagable
             if (shield < 0)
             {
                 life += shield;
+                shield = 0;
             }
         }
         else

@@ -17,22 +17,22 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.forward * speed;
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnCollisionEnter(Collision other) 
     {
-        IDamagable damagable = other.GetComponent<IDamagable>();
+        IDamagable damagable = other.gameObject.GetComponent<IDamagable>();
 
         if (damagable != null)
         {
             if (ownerId == 0)
             {
-                if (other.CompareTag("Enemy"))
+                if (other.gameObject.CompareTag("Enemy"))
                 {
                     damagable.TakeDamage(damage);
                 }
             }
             else
             {
-                if (other.CompareTag("Player"))
+                if (other.gameObject.CompareTag("Player"))
                 {
                     damagable.TakeDamage(damage);
                 }
