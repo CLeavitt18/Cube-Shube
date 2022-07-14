@@ -39,12 +39,13 @@ public class GameManager : MonoBehaviour
         if (paused)
         {
             Resume();
-            return;
         }
-
-        UnlockMouse();
-        paused = true;
-        pauseMenu.SetActive(true);
+        else
+        {
+            UnlockMouse();
+            paused = true;
+            pauseMenu.SetActive(true);
+        }
     }
 
     public void Resume()

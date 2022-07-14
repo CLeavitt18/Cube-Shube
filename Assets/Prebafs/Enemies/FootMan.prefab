@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 129027940973244088, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.1805
+      objectReference: {fileID: 0}
+    - target: {fileID: 129027940973244088, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 471130070177820771, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
+      propertyPath: m_Name
+      value: BarBackGrtound
+      objectReference: {fileID: 0}
+    - target: {fileID: 959155100791768849, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.0545
+      objectReference: {fileID: 0}
     - target: {fileID: 1963452928790739850, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
       propertyPath: life
       value: 150
@@ -23,6 +39,10 @@ PrefabInstance:
     - target: {fileID: 1963452928790739850, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
       propertyPath: fireRate
       value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444055990032365395, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
+      propertyPath: m_Name
+      value: EnemyUI
       objectReference: {fileID: 0}
     - target: {fileID: 4872426748698871996, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
       propertyPath: m_Name

@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour, IDamagable
     [Header("Compenets\n------------------------------------------------------")]
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform bulletSpawn;
+    [SerializeField] private EnemyUI ui;
 
 
     [Header("Enemy Stats\n------------------------------------------------------")]
@@ -22,12 +23,19 @@ public class Enemy : MonoBehaviour, IDamagable
 
     private bool canShoot = true;
 
+    private int maxLife;
+    private int maxShield;
+
 
     // Start is called before the first frame update
     void Start()
     {
         agent.speed = speed;
         agent.stoppingDistance = stopRange;
+        maxLife = life;
+        maxShield = shield;
+
+        ui.UpdatedBars();
     }
 
     // Update is called once per frame
@@ -107,6 +115,8 @@ public class Enemy : MonoBehaviour, IDamagable
                 Destroy(gameObject);
             }
         }
+
+        ui.UpdatedBars();
     }
 
     private void OnDrawGizmos() 
@@ -119,5 +129,25 @@ public class Enemy : MonoBehaviour, IDamagable
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, stopRange);  
+    }
+
+    public int GetLife()
+    {
+        return life;
+    }
+
+    public int GetMaxLife()
+    {
+        return maxLife;
+    }
+
+    public int GetShield()
+    {
+        return shield;
+    }
+
+    public int GetMaxShield()
+    {
+        return maxShield;
     }
 }
