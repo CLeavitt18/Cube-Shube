@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 1183895822}
   - component: {fileID: 1183895821}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 1253765965}
   - component: {fileID: 1253765964}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ShieldText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 1915371651}
   - component: {fileID: 1915371650}
   m_Layer: 5
-  m_Name: HealthBar BackGround
+  m_Name: ShieldBar BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -771,5 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91315c190df7f92428149a99576ec405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeText: {fileID: 1183895821}
+  shieldText: {fileID: 1253765964}
   healthBar: {fileID: 97818592}
   shieldBar: {fileID: 1125495130}

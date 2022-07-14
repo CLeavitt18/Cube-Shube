@@ -46,13 +46,13 @@ public class Player : MonoBehaviour, IDamagable
             DontDestroyOnLoad(gameObject);
         }
 
+        MaxLife = life;
+        MaxShield = shield;
     }
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        MaxLife = life;
-        MaxShield = shield;
     }
 
     private void Update() 
@@ -118,7 +118,7 @@ public class Player : MonoBehaviour, IDamagable
             {
                 Death();
             }
-            
+
             PlayerStats.Ui.UpdatedHealthBar();
         }
     }
