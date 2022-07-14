@@ -57,7 +57,10 @@ public class Player : MonoBehaviour, IDamagable
 
     private void Update() 
     {
-        
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            GameManager.Instance.Pause();
+        }
     }
 
     private void LateUpdate()
@@ -71,6 +74,11 @@ public class Player : MonoBehaviour, IDamagable
 
     public void OnMove(InputValue movementValue)
     {
+        if (GameManager.Instance.GetPaused())
+        {
+            return;
+        }
+
         Vector2 movementVector = movementValue.Get<Vector2>();
 
         movementX = movementVector.x * 0.75f;
@@ -79,6 +87,11 @@ public class Player : MonoBehaviour, IDamagable
 
     public void OnLook(InputValue mouseValue)
     {
+        if (GameManager.Instance.GetPaused())
+        {
+            return;
+        }
+
         Vector2 mouseVector = mouseValue.Get<Vector2>();
 
         mouseVector = Vector2.Scale(mouseVector, new Vector2(mouseSens, mouseSens));
@@ -92,6 +105,11 @@ public class Player : MonoBehaviour, IDamagable
 
     public void OnFire()
     {
+        if (GameManager.Instance.GetPaused())
+        {
+            return;
+        }
+
         Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
     }
 
@@ -105,10 +123,10 @@ public class Player : MonoBehaviour, IDamagable
             {
                 life += shield;
                 shield = 0;
-                PlayerStats.Ui.UpdatedHealthBar();
+                GameManager.Instance.UpdatedHealthBar();
             }
 
-            PlayerStats.Ui.UpdatedShieldBar();
+            GameManager.Instance.UpdatedShieldBar();
         }
         else
         {
@@ -119,7 +137,7 @@ public class Player : MonoBehaviour, IDamagable
                 Death();
             }
 
-            PlayerStats.Ui.UpdatedHealthBar();
+            GameManager.Instance.UpdatedHealthBar();
         }
     }
 
