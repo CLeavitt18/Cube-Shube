@@ -21,6 +21,7 @@ public class Player : MonoBehaviour, IDamagable
     [Header("Player Stats\n------------------------------------------------------")]
     [SerializeField] private int life;
     [SerializeField] private int shield;
+    [SerializeField] private int armor;
     [SerializeField] private GameObject bullet;
     [SerializeField] private int damage;
     [SerializeField] private float fireRate;

@@ -195,8 +195,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04388dc53b4e1b94195e24ef52eca19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 6177651640006923311}
+  life: 0
+  shield: 0
+  armor: 0
+  speed: 0
   lookRange: 12
   attackRange: 10
+  stopRange: 7
+  bullet: {fileID: 0}
 --- !u!195 &6177651640006923311
 NavMeshAgent:
   m_ObjectHideFlags: 0

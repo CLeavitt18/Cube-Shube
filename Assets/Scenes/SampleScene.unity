@@ -435,6 +435,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1963452928790739850, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
+      propertyPath: life
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963452928790739850, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 6177651640006923311}
+    - target: {fileID: 1963452928790739850, guid: 3e204b74456fbb8499ace7ffe5eff52b, type: 3}
       propertyPath: lookRange
       value: 12
       objectReference: {fileID: 0}
