@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,8 +28,10 @@ public class Player : MonoBehaviour, IDamagable
     private float movementY;
 
     private Vector2 mouseMove;
-
     private Vector2 mouseLook;
+
+    private int MaxLife;
+    private int MaxShield;
 
 
     private void Awake() 
@@ -51,6 +51,8 @@ public class Player : MonoBehaviour, IDamagable
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        MaxLife = life;
+        MaxShield = shield;
     }
 
     private void Update() 
@@ -101,8 +103,12 @@ public class Player : MonoBehaviour, IDamagable
 
             if (shield < 0)
             {
+                life += shield;
                 shield = 0;
+                PlayerStats.Ui.UpdatedHealthBar();
             }
+
+            PlayerStats.Ui.UpdatedShieldBar();
         }
         else
         {
@@ -112,11 +118,33 @@ public class Player : MonoBehaviour, IDamagable
             {
                 Death();
             }
+            
+            PlayerStats.Ui.UpdatedHealthBar();
         }
     }
 
     private void Death()
     {
 
+    }
+
+    public int GetLife()
+    {
+        return life;
+    }
+
+    public int GetMaxLife()
+    {
+        return MaxLife;
+    }
+
+    public int GetShield()
+    {
+        return shield;
+    }
+
+    public int GetMaxShield()
+    {
+        return MaxShield;
     }
 }
